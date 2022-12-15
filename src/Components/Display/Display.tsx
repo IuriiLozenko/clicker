@@ -1,12 +1,24 @@
 import React from "react";
 
-const Display = () => {
+interface DisplayProps {
+    responseValue: number;
+    random: number;
+}
+
+const Display = (props: DisplayProps) => {
+
+
   return (
-    <div>
-      <span>25</span>
-      <p>lat</p>
-    </div>
+    <>
+      <span>0</span>
+      <p>{props.random}</p>
+    </>
   );
 };
 
 export default Display;
+// turnary oparator
+
+// {/* <span>
+//   {randomNumber > 0.5 ? "Lczba większa od 0.5" : "Liczba mniejsza od 0.5"}
+// </span>; */}

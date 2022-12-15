@@ -1,13 +1,12 @@
-import React from "react";
-
-const Header = () => {
+const OurCustomHeader = () => {
   return (
-    <div>
+    <>
       <h1>Clicker</h1>
       <h2>Pierwsza aplikacja React</h2>
       <span>To jest header</span>
-    </div>
+    </>
   );
 };
 
-export default Header;
+// <> === React.Fragment
+export default OurCustomHeader;
