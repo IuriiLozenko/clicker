@@ -4,6 +4,7 @@ import OurCustomHeader from "./Components/Header/Header";
 //import Display from './Components/Display/Display';
 import Manipulator from './Components/Manipulator/Manipulator';
 import CountDisplay from "./Components/CountDisplay/CountDisplay";
+import GreetAndGenerate from "./Components/GreetAndGenerate/GreetAndGenerate";
 
 // export type count = string | number | boolean;
 
@@ -17,11 +18,20 @@ function App() {
       <OurCustomHeader />
       <Manipulator setCount={setCount} count={count} />
       <CountDisplay count={count} />
+      <GreetAndGenerate />
     </div>
   );
 }
 
 export default App;
+
+// TASK 2. 09.01.2023
+// 1. Stwórz komponent GreetAndGenerate.
+// 2. W tym komponencie stwórz stan message. Otypuj jego wartość jako string. Wartość początkową stanu ustaw na pustego stringa.
+// 3. Stwórz funkcję greet. W środku funkcji greet wywołaj funkcję aktualizującą stan message. Wartość stanu ustawiaj na "Hello! Here's your random number: *wylosowana liczba*". Losowa liczba ma być w jakiś sposób generowana w funkcji greet oraz ma być zaokrąglona do 2 miejsc po przecinku.
+// 4. Stwórz button z textContentem "Hello!". Podepnij do niego click handler w którym wstawisz referencję do funkcji greet.
+// 5. Stwórz element h3 w którym będziesz wyświetlać stan message.
+
 // TASk 1. 09.01.2023
 // 1. Przekazanie funkcji setCount do komponentu manipulator przy pomocy propsów.
 // 2. W komponencie manipulator dodaj click handlery na oba przyciski, po kliknięciu na przycisk "-" zmniejszaj stan count o 1 (czyli wywołaj funkcję setCount i zmniejszaj count o 1), analogicznie dla przycisku + zwiększaj count o 1.
