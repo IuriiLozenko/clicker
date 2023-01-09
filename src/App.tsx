@@ -3,46 +3,33 @@ import OurCustomHeader from "./Components/Header/Header";
 import Article from './Components/Article/Article';
 import Display from './Components/Display/Display';
 import Manipulator from './Components/Manipulator/Manipulator';
+import CountDisplay from "./Components/CountDisplay/CountDisplay";
 
 // export type count = string | number | boolean;
 
 
 function App() {
-  // Hook useState służy do definiowania zmiennych których zmiana wartości ma spowodować przeładowanie
-  //(refresh) komponentu w którym sam stan został zdefiniowany (ma się przeładować kpmponent w którym został wywołaby useState)
+  // Hook useState służy do definiowania zmiennych których zmiana wartości ma spwodować przeładowanie (refresh) komponentu w którym sam stan został zdefiniowany (ma się przeładować komponent w którym został wywołany useState)
   const [count, setCount] = useState<number>(0);
-  let countAleNieStan = 0;
-  //const = 5 - ŹLE
-  //setCount(5) //- DOBRZE
-
-  // sumulacja strzału do API
-  // const response = 15;
-  // const randomNumber = Math.random();// nie uzywamy math random na to pscope
-  // const stringWithRandomNumberInIt = `lalalalala ${randomNumber} lalalalala ${response} lalalalala`;
-
-  // Handlery = atrybuty elementów JSX, możemy do tych atrybutów podawać funkcje które mają się wykonywać przy wywołaniu eventu zdefiniowanego w nazwie handlera, wszystkie zaczynają się na *on*, np. onClick, onSubmit, onHover itd...
-  // onClick={fn}, funkcja fn wykona się w momencie kliknięcia na element na który został przypięty onClick
-  // onSubmit={fn}, funckja fn wykona się w momencie kiedy formularz na który został przypiety onSubmit, zostanie zsubmitowany
-
-  const handleButtonclick = () => {
-    setCount(count + 1);
-  };
 
   return (
     <div className="App">
       <OurCustomHeader />
-      {/*<Article text={stringWithRandomNumberInIt} />
-      <Display responseValue={response} random={randomNumber} />*/}
-      <Manipulator />
-      <button onClick={handleButtonclick}>Dodaj 1 do zmiennej stanowej</button>
-      <button>Dodaj 1 do zwykłego leta</button>
-      <p>To jest zmienna stanowa: {count}</p>
-      <p>To jest zwykły let: {countAleNieStan}</p>
+      <Manipulator setCount={setCount} count={count} />
+      <CountDisplay count={count} />
     </div>
   );
 }
 
 export default App;
+// TASk 1. 09.01.2023
+// 1. Przekazanie funkcji setCount do komponentu manipulator przy pomocy propsów.
+// 2. W komponencie manipulator dodaj click handlery na oba przyciski, po kliknięciu na przycisk "-" zmniejszaj stan count o 1 (czyli wywołaj funkcję setCount i zmniejszaj count o 1), analogicznie dla przycisku + zwiększaj count o 1.
+// 3. Stwórz komponent CountDisplay. Wyświetlaj w nim paragraf ze stanem count. Sam stan count przekaż propsem. Komponent CountDisplay wyświetlaj w komponencie App.
+
+
+
+
 
 // ReactDom.render(Display({
 //   responseValue: response,
@@ -60,3 +47,26 @@ export default App;
 // 2. Odbieram obiekt z propsami w parametrze komponentu do którego te propsy przekazałem.
 // 3. Propsy ZAWSZE przychodzą w obiekcie, a sam obiekt jest parametrem. Z zasad TS wynika że parametry funkcji trzeba otypować. Do typowania obiektów używamy interfejsów. Tworzę interface dla moich propsów, będzie on nazywany według wzoru *nazwa komponentu* + Props. W samym interfejsie wypisuje wszystkie po kolei, jednocześnie podając typy ich wartości.
 
+
+//   const handleButtonclick = () => {
+//     setCount(count + 1);
+//   };
+
+//   const handleWrongButtonClick = () => {
+//     countAleNieStan++;
+//     console.log(countAleNieStan);
+//   };
+
+//   return (
+//     <div className="App">
+//       <OurCustomHeader />
+//       {/*<Article text={stringWithRandomNumberInIt} />
+//       <Display responseValue={response} random={randomNumber} />*/}
+//       <Manipulator />
+//       <button onClick={handleButtonclick}>Dodaj 1 do zmiennej stanowej</button>
+//       <button onClick={handleWrongButtonClick}>Dodaj 1 do zwykłego leta</button>
+//       <p>To jest zmienna stanowa: {count}</p>
+//       <p>To jest zwykły let: {countAleNieStan}</p>
+//     </div>
+//   );
+// }
