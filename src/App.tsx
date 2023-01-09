@@ -1,31 +1,39 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import OurCustomHeader from "./Components/Header/Header";
 import Article from './Components/Article/Article';
 import Display from './Components/Display/Display';
 import Manipulator from './Components/Manipulator/Manipulator';
 
-export type count = string | number | boolean;
+// export type count = string | number | boolean;
+
 
 function App() {
-
-  // pierwszy element useState: zmienna stanowa, pojemnik na dane, zmiana jej wartości powoduje przładowanie się komponentu w którym została zainicjalizowana
-  // drugi element useState: funckja aktualizująca zmienna stanową, zmienna stanowa i jej funkcja są nie rozłączne
-
-  // const [count, setCount] = useState<count>(0);
+  // Hook useState służy do definiowania zmiennych których zmiana wartości ma spowodować przeładowanie
+  //(refresh) komponentu w którym sam stan został zdefiniowany (ma się przeładować kpmponent w którym został wywołaby useState)
+  const [count, setCount] = useState<number>(0);
+  let countAleNieStan = 0;
   //const = 5 - ŹLE
   //setCount(5) //- DOBRZE
 
+  // sumulacja strzału do API
+  // const response = 15;
+  // const randomNumber = Math.random();// nie uzywamy math random na to pscope
+  // const stringWithRandomNumberInIt = `lalalalala ${randomNumber} lalalalala ${response} lalalalala`;
 
-// sumulacja strzału do API
-const response = 15;
-const randomNumber = Math.random();
-const stringWithRandomNumberInIt = `lalalalala ${randomNumber} lalalalala ${response} lalalalala`;
+  const handleButtonclick = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div className="App">
       <OurCustomHeader />
-      <Article text={stringWithRandomNumberInIt} />
-      <Display responseValue={response} random={randomNumber} />
+      {/*<Article text={stringWithRandomNumberInIt} />
+      <Display responseValue={response} random={randomNumber} />*/}
       <Manipulator />
+      <button onClick={handleButtonclick}>Dodaj 1 do zmiennej stanowej</button>
+      <button>Dodaj 1 do zwykłego leta</button>
+      <p>To jest zmienna stanowa: {count}</p>
+      <p>To jest zwykły let: {countAleNieStan}</p>
     </div>
   );
 }
