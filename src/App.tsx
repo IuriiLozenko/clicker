@@ -20,6 +20,10 @@ function App() {
   // const randomNumber = Math.random();// nie uzywamy math random na to pscope
   // const stringWithRandomNumberInIt = `lalalalala ${randomNumber} lalalalala ${response} lalalalala`;
 
+  // Handlery = atrybuty elementów JSX, możemy do tych atrybutów podawać funkcje które mają się wykonywać przy wywołaniu eventu zdefiniowanego w nazwie handlera, wszystkie zaczynają się na *on*, np. onClick, onSubmit, onHover itd...
+  // onClick={fn}, funkcja fn wykona się w momencie kliknięcia na element na który został przypięty onClick
+  // onSubmit={fn}, funckja fn wykona się w momencie kiedy formularz na który został przypiety onSubmit, zostanie zsubmitowany
+
   const handleButtonclick = () => {
     setCount(count + 1);
   };
