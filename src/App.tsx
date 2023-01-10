@@ -2,25 +2,27 @@ import React, { useState } from "react";
 import OurCustomHeader from "./Components/Header/Header";
 //import Article from './Components/Article/Article';
 //import Display from './Components/Display/Display';
-import Manipulator from './Components/Manipulator/Manipulator';
-import CountDisplay from "./Components/CountDisplay/CountDisplay";
-import GreetAndGenerate from "./Components/GreetAndGenerate/GreetAndGenerate";
+// import Manipulator from './Components/Manipulator/Manipulator';
+// import CountDisplay from "./Components/CountDisplay/CountDisplay";
+// import GreetAndGenerate from "./Components/GreetAndGenerate/GreetAndGenerate";
 import DownloadButton from "./Components/DownloadButton/DownloadButton";
+import TodoDisplay from "./Components/TodoDisplay/TodoDisplay";
 
 // export type count = string | number | boolean;
 
 
 function App() {
   // Hook useState służy do definiowania zmiennych których zmiana wartości ma spwodować przeładowanie (refresh) komponentu w którym sam stan został zdefiniowany (ma się przeładować komponent w którym został wywołany useState)
-  const [count, setCount] = useState<number>(0);
-
+  //const [count, setCount] = useState<number>(0);
+  const [todo, setTodo] = useState<string>("");
   return (
     <div className="App">
       <OurCustomHeader />
-      <Manipulator setCount={setCount} count={count} />
+      {/* <Manipulator setCount={setCount} count={count} />
       <CountDisplay count={count} />
-      <GreetAndGenerate />
-      <DownloadButton />
+      <GreetAndGenerate /> */}
+      <DownloadButton setTodo={setTodo} />
+      <TodoDisplay todo={todo} />
     </div>
   );
 }
