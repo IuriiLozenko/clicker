@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classes from "./DownloadButton.module.css"
 
 interface DownloadButtonProps {
   setTodo: (title: string) => void;
@@ -22,7 +23,7 @@ const DownloadButton = ({ setTodo }: DownloadButtonProps) => {
 
   return (
     <div>
-      <button onClick={fetchTodos}>Download todo</button>
+      <button className={classes.button} onClick={fetchTodos}>Download todo</button>
     </div>
   );
 };
