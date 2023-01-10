@@ -5,6 +5,7 @@ import OurCustomHeader from "./Components/Header/Header";
 import Manipulator from './Components/Manipulator/Manipulator';
 import CountDisplay from "./Components/CountDisplay/CountDisplay";
 import GreetAndGenerate from "./Components/GreetAndGenerate/GreetAndGenerate";
+import DownloadButton from "./Components/DownloadButton/DownloadButton";
 
 // export type count = string | number | boolean;
 
@@ -19,11 +20,19 @@ function App() {
       <Manipulator setCount={setCount} count={count} />
       <CountDisplay count={count} />
       <GreetAndGenerate />
+      <DownloadButton />
     </div>
   );
 }
 
 export default App;
+
+// Task 1 10.01.2023
+// 1. Stwórz komponent DownloadButton. Wyświetl w nim przycisk z textContentem "Download todo".
+// 2. W komponencie DownloadButton stwórz stan todo, wartość początkowa: "", otypuj useState na typ string.
+// 3. W środku komponentu DownloadButton stwórz funkcję fetchTodos. W tej funkcji wywołaj funkcję fetch z urlem 'https://jsonplaceholder.typicode.com/todos/*tu losowa liczba od 1 do 10*'. Obiekt króry zostanie zwrócony z fetcha będzie zawierał własność "title". Właśnie to title wrzuć do stanu todo.
+// 4. Podepnij funkcję fetchTodos do kliku na przycisk w komponencie DownloadButton.
+// 5. Wyświetl stan todo w spanie w komponencie DownloadButton.
 
 // TASK 2. 09.01.2023
 // 1. Stwórz komponent GreetAndGenerate.
@@ -80,3 +89,5 @@ export default App;
 //     </div>
 //   );
 // }
+
+
